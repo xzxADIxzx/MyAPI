@@ -24,12 +24,12 @@ function line_tog() {
 }
 
 function hier_tog() {
-	console.log(this)
-	var toggle = toggles[this.classList[1].toString()[25]]
+	var toggle = document.getElementsByClassName(this.classList[2])[0]
 	toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
-	toggles = document.getElementsByClassName("toggled-" + this.classList[1].toString()[25])
-	console.log(toggles)
-	// toggle.childNodes[7].classList.toggle("sidebar-hierarchy-toggle-hidden")
+	toggles = document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])
+	for (var i = 0; i < toggles.length; i++) {
+		toggles[i].classList.toggle("sidebar-hierarchy-toggle-hidden")
+	}
 }
 
 line_tog()
@@ -41,5 +41,4 @@ for (var i = 0; i < toggles.length; i++) {
 	toggles[i].addEventListener("click", hier_tog)
 	toggles[i].classList.add("sidebar-hierarchy-toggle-" + i)
 	toggles[i].childNodes[3].classList.add("sidebar-hierarchy-toggle-line-" + i)
-	if(i > 0) toggles[i].classList.toggle("sidebar-hierarchy-toggle-hidden")
 }
