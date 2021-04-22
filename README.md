@@ -1,2 +1,0 @@
-# MyAPI
-My API documentation
