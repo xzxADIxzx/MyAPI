@@ -8,9 +8,9 @@
 <body>
 	<header>
 		<div id="header-menu">
-			<div id="menu-line-1" class="header-menu-line"></div>
-			<div id="menu-line-2" class="header-menu-line"></div>
-			<div id="menu-line-3" class="header-menu-line"></div>
+			<div class="header-menu-line header-menu-line-1"></div>
+			<div class="header-menu-line header-menu-line-2"></div>
+			<div class="header-menu-line header-menu-line-3"></div>
 		</div>
 		<div class="header-text">MyAPI</div>
 		<div class="header-arrow">></div>
@@ -43,10 +43,10 @@
 				</div>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def crypt</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-crypt">def crypt</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def translate</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-translate">def translate</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
 				<a class="sidebar-hierarchy-dot-text" href="#">def plus_msg</a>
@@ -67,24 +67,66 @@
 				<a class="sidebar-hierarchy-dot-text" href="#">def inv</a>
 			</div>
 		</div>
+		<div class="sidebar-hierarchy-dot">
+			<a class="sidebar-hierarchy-dot-text" href="#goto-crypt">PyCrypt.py</a>
+		</div>
 	</div>
 	<div id="content">
-		AOIFNOAINIO AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO AOIFNOAINIO
-		<br>
-		AOIFNOAINIO AOIFNOAINIO
-		<br>
-		<span class="dt">int</span> key
-	</div>
+		<div class="hm">Crypt</div>
+		<hr>
+		<div style="padding-left: 16px">
+			<span id="goto-crypt" class="hs">Crypt</span>
+			<br>
+			<span class="clr">def</span> crypt(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Completely encrypts the text using a set of functions.
+			<div class="ce">
+				crypt(<span class="clr-t">"Hello World!"</span>, <span class="clr">123456</span>, <span class="clr">True</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"208487147732414421680879701919434547470269630939160523743"</span>
+				<hr>
+				crypt(<span class="clr-t">"208487147732414421680879701919434547470269630939160523743"</span>, <span class="clr">123456</span>, 
+				<span class="clr">False</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"Hello World!"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-translate" class="hs">Translate</span>
+			<br>
+			<span class="clr">def</span> translate(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Translates text from characters to numbers and vice versa.
+			<div class="ce">
+				translate(<span class="clr-t">"Hello World!"</span>, <span class="clr">123456</span>, <span class="clr">True</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"114109123123129300144129135123107301"</span>
+				<hr>
+				translate(<span class="clr-t">"114109123123129300144129135123107301"</span>, <span class="clr">123456</span>, 
+				<span class="clr">False</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"Hello World!"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div> 
 </body>
 <script type="text/javascript" src="script.js"></script>
 </html>

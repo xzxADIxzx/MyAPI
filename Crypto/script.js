@@ -1,7 +1,9 @@
 var menu = document.getElementById("header-menu")
-var line1 = document.getElementById("menu-line-1")
-var line2 = document.getElementById("menu-line-2")
-var line3 = document.getElementById("menu-line-3")
+var line1 = document.getElementsByClassName("header-menu-line-1")[0]
+var line2 = document.getElementsByClassName("header-menu-line-2")[0]
+var line3 = document.getElementsByClassName("header-menu-line-3")[0]
+var sidebar = document.getElementById("sidebar")
+var content = document.getElementById("content")
 var toggles = document.getElementsByClassName("sidebar-hierarchy-toggle")
 var toggle_line = document.getElementsByClassName("sidebar-hierarchy-toggle-line-plus")
 
@@ -21,6 +23,8 @@ function line_tog() {
 	line1.classList.toggle("header-menu-line-1")
 	line2.classList.toggle("header-menu-line-2")
 	line3.classList.toggle("header-menu-line-3")
+	sidebar.classList.toggle("sidebar-hidden")
+	content.classList.toggle("content-opened")
 }
 
 function hier_tog() {
@@ -32,7 +36,6 @@ function hier_tog() {
 	}
 }
 
-line_tog()
 menu.addEventListener("mouseover", line_add)
 menu.addEventListener("mouseout", line_rem)
 menu.addEventListener("click", line_tog)

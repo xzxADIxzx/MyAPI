@@ -1,14 +1,14 @@
 body{
 	margin: 0;
 
-	overflow-x: hidden;
+	overflow: hidden;
 }
 header{
 	height: 64px;
 
 	display: flex;
 	align-items: center;
-	background-color: #222A35
+	background-color: #222A35;
 }
 #header-menu{
 	height: 64px;
@@ -93,6 +93,18 @@ header{
 	padding: 12px;
 
 	float: left;
+	overflow-y: scroll;
+}
+#sidebar::-webkit-scrollbar{
+	width: 16px;
+	background-color: #222A35;
+}
+#sidebar::-webkit-scrollbar-thumb{
+	border-radius: 8px;
+	background-color: #828A95;
+}
+.sidebar-hidden{
+	display: none;
 }
 .sidebar-hierarchy-toggle{
 	height: 16px;
@@ -159,20 +171,62 @@ header{
 	color: #000;
 }
 #content{
-	min-height: calc(100vh - 64px);
+	height: calc(100vh - 64px - 32px);
+	padding: 16px;
 	margin-left: 420px;
 
-	/*overflow-y: scroll;*/
-	border-left: 16px solid #222A35;
+	overflow-y: auto;
+	font-size: .95em;
+	font-family: 'Roboto', sans-serif;
 }
-.dt{ /* data type*/
+#content::-webkit-scrollbar{
+	width: 16px;
+}
+#content::-webkit-scrollbar-thumb{
+	border-radius: 4px;
+	background-color: #0CC;
+}
+.content-opened{
+	padding-right: 20vw !important;
+	padding-left: 20vw !important;
+	margin: 0 !important;
+}
+.hm{ /* h-main */
+	text-align: center;
+	font-size: 48px;
+	font-weight: 900;
+}
+.hs{ /* h-second */
+	font-size: 32px;
+	font-weight: 700;
+}
+.ht{ /* h-thirt */
+	font-size: 24px;
+}
+.dt{ /* data type */
 	padding: 0 2px;
 
 	color: #0CC;
 	font-size: 14px;
 	font-weight: 900;
-	font-family: 'Roboto', sans-serif;
 	border-right: 4px solid #828A95;
 	border-left: 4px solid #828A95;
 	border-radius: 64px;
+}
+.clr{
+	color: #0CC;
+	font-weight: 600;
+}
+.clr-t{
+	color: #ED0;
+	font-weight: 600;
+}
+.ce{ /* code-example */
+	padding: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+
+	color: #FFF;
+	background-color: #222A35;
+	border-radius: 8px;
 }
