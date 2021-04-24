@@ -16,9 +16,10 @@
 		<div class="header-arrow">></div>
 		<div class="header-text">Crypto</div>
 		<form id="header-form">
-			<input id="header-search" type="text" name="search" spellcheck="false">
-			<input id="header-send" type="image" src="search.svg">
+			<input id="header-form-search" type="text" spellcheck="false" autocomplete="off">
+			<input id="header-form-send" type="image" src="search.svg">
 		</form>
+		<div id="header-form-search-results" style="display: none;"></div>
 		<div id="header-form-decor"></div>
 		<div id="header-decor"></div>
 	</header>
@@ -36,11 +37,14 @@
 			</div>
 			<div style="padding-left: 16px;" class="sidebar-hierarchy-toggle-hidden toggled-1">
 				<div class="sidebar-hierarchy-dot">
-					<a class="sidebar-hierarchy-dot-text" href="#">def dict_inv</a>
+					<a class="sidebar-hierarchy-dot-text" href="#goto-dict_inv">def dict_inv</a>
 				</div>
 				<div class="sidebar-hierarchy-dot">
-					<a class="sidebar-hierarchy-dot-text" href="#">def three</a>
+					<a class="sidebar-hierarchy-dot-text" href="#goto-three">def three</a>
 				</div>
+			</div>
+			<div class="sidebar-hierarchy-dot">
+				<a class="sidebar-hierarchy-dot-text" href="#goto-translation">translation</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
 				<a class="sidebar-hierarchy-dot-text" href="#goto-crypt">def crypt</a>
@@ -49,32 +53,81 @@
 				<a class="sidebar-hierarchy-dot-text" href="#goto-translate">def translate</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def plus_msg</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-plus_msg">def plus_msg</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def plus_key</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-plus_key">def plus_key</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def plus_power</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-plus_power">def plus_power</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def plus_random</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-plus_random">def plus_random</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def move</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-move">def move</a>
 			</div>
 			<div class="sidebar-hierarchy-dot">
-				<a class="sidebar-hierarchy-dot-text" href="#">def inv</a>
+				<a class="sidebar-hierarchy-dot-text" href="#goto-inv">def inv</a>
 			</div>
 		</div>
 		<div class="sidebar-hierarchy-dot">
-			<a class="sidebar-hierarchy-dot-text" href="#goto-crypt">PyCrypt.py</a>
+			<a class="sidebar-hierarchy-dot-text" href="#goto-PyCrypt">PyCrypt.py</a>
 		</div>
 	</div>
 	<div id="content">
 		<div class="hm">Crypt</div>
 		<hr>
 		<div style="padding-left: 16px">
+			<span class="hs">About</span>
+			<br>
+			Library for encrypting strings.
+			<br>
+			<br>
+			<br>
+			<span class="hs">Install</span>
+			<br>
+			You can download it from GitHub using the <a class="clr" href="https://github.com/xzxADIxzx/MyPy/tree/master/PyCrypt">link</a>.
+			<br>
+			<br>
+			<br>
+			<div style="padding-left: 16px">
+				<span class="ht">Packages</span>
+				<br>
+				You don't need any third-party libraries to work.
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-translation" class="hs">Translation</span>
+			<br>
+			translation = {
+			<span class="clr-t">"A"</span>: <span class="clr-t">"100"</span>, 
+			<span class="clr-t">"a"</span>: <span class="clr-t">"101"</span>, 
+			<span class="clr-t">"B"</span>: <span class="clr-t">"102"</span>, 
+			<span class="clr-t">"b"</span>: <span class="clr-t">"103"</span>, 
+			<span class="clr-t">"C"</span>: <span class="clr-t">"104"</span>, 
+			<span class="clr-t">"c"</span>: <span class="clr-t">"105"</span>, 
+			<span class="clr-t">"D"</span>: <span class="clr-t">"106"</span>, 
+			<span class="clr-t">"d"</span>: <span class="clr-t">"107"</span>, 
+			<span class="clr-t">"E"</span>: <span class="clr-t">"108"</span>, 
+			<span class="clr-t">"e"</span>: <span class="clr-t">"109"</span>}
+			<br>
+			<br>
+			The dictionary by which the <a class="clr" href="#goto-translate">translate</a> function works.
+			<div class="ce">
+				<span class="clr">for</span> x <span class="clr">in</span> msg:
+				<br>
+				<div style="padding-left: 16px">
+					<span class="clr">try</span>: msg_mod <span class="clr">+=</span> translation[<span class="clr">x</span>]
+					<br>
+					<span class="clr">except</span>: msg_mod <span class="clr">+=</span> error
+				</div>
+				<span class="clr">return</span> msg_mod
+			</div>
+			<br>
+			<br>
+			<br>
 			<span id="goto-crypt" class="hs">Crypt</span>
 			<br>
 			<span class="clr">def</span> crypt(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
@@ -88,11 +141,11 @@
 			<br>
 			Completely encrypts the text using a set of functions.
 			<div class="ce">
-				crypt(<span class="clr-t">"Hello World!"</span>, <span class="clr">123456</span>, <span class="clr">True</span>)
+				crypt(<span class="clr-t">"Hello World!"</span>, <span class="clr-i">123456</span>, <span class="clr">True</span>)
 				<br>
 				<span class="clr">>>></span> <span class="clr-t">"208487147732414421680879701919434547470269630939160523743"</span>
 				<hr>
-				crypt(<span class="clr-t">"208487147732414421680879701919434547470269630939160523743"</span>, <span class="clr">123456</span>, 
+				crypt(<span class="clr-t">"208487147732414421680879701919434547470269630939160523743"</span>, <span class="clr-i">123456</span>, 
 				<span class="clr">False</span>)
 				<br>
 				<span class="clr">>>></span> <span class="clr-t">"Hello World!"</span>
@@ -111,16 +164,79 @@
 			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
 			<br>
 			<br>
-			Translates text from characters to numbers and vice versa.
+			Translates text from characters to numbers and vice versa. Uses a <a class="clr" href="#goto-translation">dictionary</a> for translation.
 			<div class="ce">
-				translate(<span class="clr-t">"Hello World!"</span>, <span class="clr">123456</span>, <span class="clr">True</span>)
+				translate(<span class="clr-t">"Hello World!"</span>, <span class="clr-i">123456</span>, <span class="clr">True</span>)
 				<br>
 				<span class="clr">>>></span> <span class="clr-t">"114109123123129300144129135123107301"</span>
 				<hr>
-				translate(<span class="clr-t">"114109123123129300144129135123107301"</span>, <span class="clr">123456</span>, 
+				translate(<span class="clr-t">"114109123123129300144129135123107301"</span>, <span class="clr-i">123456</span>, 
 				<span class="clr">False</span>)
 				<br>
 				<span class="clr">>>></span> <span class="clr-t">"Hello World!"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-plus_msg" class="hs">Plus Msg</span>
+			<br>
+			<span class="clr">def</span> plus_msg(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Divides the message into three-digit chunks.
+			<div class="ce">
+				<span class="clr-t">"000111222333444555666777888999"</span>
+				<hr>
+				<span class="clr-t">"000"</span>, <span class="clr-t">"111"</span>, 
+				<span class="clr-t">"222"</span>, <span class="clr-t">"333"</span>, 
+				<span class="clr-t">"444"</span>, <span class="clr-t">"555"</span>, 
+				<span class="clr-t">"666"</span>, <span class="clr-t">"777"</span>, 
+				<span class="clr-t">"888"</span>, <span class="clr-t">"999"</span>
+			</div>
+			Takes two pieces and does what is indicated in the example below.
+			<div class="ce">
+				msg[<span class="clr">first</span>] <span class="clr">+=</span> msg[<span class="clr">second</span>]
+				<br>
+				msg[<span class="clr">second</span>] <span class="clr">+=</span> msg[<span class="clr">first</span>]
+				<br>
+				msg[<span class="clr">second</span>] <span class="clr">+=</span> key0
+				<br>
+				msg[<span class="clr">first</span>] <span class="clr">+=</span> key1
+			</div>
+			<span class="dt">int</span> key0 - first digit from key
+			<br>
+			<span class="dt">int</span> key1 - first two digits from key
+			<br>
+			<br>
+			<br>
+			<span id="goto-plus_key" class="hs">Plus Key</span>
+			<br>
+			<span class="clr">def</span> plus_key(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Divides the message and the key into three-digit chunks. And adds to each part of the message all parts of the key. 
+			If a part of the message is more than 3 characters, then 1000 is subtracted from it.
+			<div class="ce">
+				<span class="clr">for</span> y <span class="clr">in</span> range(<span class="clr-i">0</span>, len(<span class="clr">key</span>)):
+				<div style="padding-left: 16px">
+					msg[<span class="clr">x</span>] <span class="clr">+=</span> key[<span class="clr">y</span>]
+				</div>
+				<span class="clr">while</span> msg[<span class="clr">x</span>] <span class="clr">></span> <span class="clr-i">999</span>:
+				<div style="padding-left: 16px">
+					msg[<span class="clr">x</span>] <span class="clr">-=</span> <span class="clr-i">1000</span>
+				</div>
 			</div>
 			<br>
 			<br>
