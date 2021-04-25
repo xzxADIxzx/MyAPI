@@ -201,13 +201,25 @@
 			</div>
 			Takes two pieces and does what is indicated in the example below.
 			<div class="ce">
-				msg[<span class="clr">first</span>] <span class="clr">+=</span> msg[<span class="clr">second</span>]
+				1 - msg[<span class="clr">first</span>] <span class="clr">+=</span> msg[<span class="clr">second</span>]
+				<span style="padding-left: 32px"></span>
+				1 - <span class="clr-t">"111"</span>, <span class="clr-t">"111"</span>, 
+					<span class="clr-t">"555"</span>, <span class="clr-t">"333"</span>
 				<br>
-				msg[<span class="clr">second</span>] <span class="clr">+=</span> msg[<span class="clr">first</span>]
+				2 - msg[<span class="clr">second</span>] <span class="clr">+=</span> msg[<span class="clr">first</span>]
+				<span style="padding-left: 32px"></span>
+				2 - <span class="clr-t">"111"</span>, <span class="clr-t">"222"</span>, 
+					<span class="clr-t">"555"</span>, <span class="clr-t">"888"</span>
 				<br>
-				msg[<span class="clr">second</span>] <span class="clr">+=</span> key0
+				3 - msg[<span class="clr">second</span>] <span class="clr">+=</span> key0
+				<span style="padding-left: 66px"></span>
+				3 - <span class="clr-t">"111"</span>, <span class="clr-t">"223"</span>, 
+					<span class="clr-t">"555"</span>, <span class="clr-t">"889"</span>
 				<br>
-				msg[<span class="clr">first</span>] <span class="clr">+=</span> key1
+				4 - msg[<span class="clr">first</span>] <span class="clr">+=</span> key1
+				<span style="padding-left: 90px"></span>
+				4 - <span class="clr-t">"134"</span>, <span class="clr-t">"223"</span>, 
+					<span class="clr-t">"578"</span>, <span class="clr-t">"889"</span>
 			</div>
 			<span class="dt">int</span> key0 - first digit from key
 			<br>
@@ -237,6 +249,63 @@
 				<div style="padding-left: 16px">
 					msg[<span class="clr">x</span>] <span class="clr">-=</span> <span class="clr-i">1000</span>
 				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-plus_power" class="hs">Plus Power</span>
+			<br>
+			<span class="clr">def</span> plus_power(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Divides the message into three-digit chunks. And adds a (third key number)
+			<span style="font-size: 10px; position: relative; bottom: 8px; right: 4px">2</span> to each part of the message.
+			<br>
+			<br>
+			<br>
+			<span id="goto-plus_random" class="hs">Plus Random</span>
+			<br>
+			<span class="clr">def</span> plus_random(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Adds a few random digits to the beginning and end of the message.
+			<div class="ce">
+				<span class="clr-t">"000111222333444555666777888999"</span>
+				<hr>
+				<span class="clr-t">"13370001112223334445556667778889994200"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-move" class="hs">Move</span>
+			<br>
+			<span class="clr">def</span> move(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			<br>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Each n character is shifted right to the next n character. n = sixth number of the key.
+			<div class="ce">
+				move(<span class="clr-t">"000111222333444555666777888999"</span>, <span class="clr-i">246135</span>, <span class="clr">True</span>)
+				<hr>
+				<span class="clr">>>></span> <span class="clr-t">"<span class="clr">8</span>0011<span class="clr">0</span>2223<span 
+				class="clr">1</span>3444<span class="clr">3</span>5566<span class="clr">5</span>7778<span class="clr">6</span>8999"</span>
 			</div>
 			<br>
 			<br>
