@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MyAPI</title>
+	<link rel="shortcut icon" href="search.svg" type="image/svg">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -19,17 +20,17 @@
 			<input id="header-form-search" type="text" spellcheck="false" autocomplete="off">
 			<input id="header-form-send" type="image" src="search.svg">
 		</form>
-		<div id="header-form-search-results" style="display: none;"></div>
+		<div id="header-form-search-results" style="display: none;" translate="no"></div>
 		<div id="header-form-decor"></div>
 		<div id="header-decor"></div>
 	</header>
-	<div id="sidebar">
+	<div id="sidebar" translate="no">
 		<div class="sidebar-hierarchy-toggle toggle-0">
 			<div class="sidebar-hierarchy-toggle-line"></div>
 			<div class="sidebar-hierarchy-toggle-line sidebar-hierarchy-toggle-line-plus"></div>
 			<span class="sidebar-hierarchy-toggle-text">Crypto</span>
 		</div>
-		<div style="padding-left: 16px;" class="sidebar-hierarchy-toggle-hidden toggled-0">
+		<div style="padding-left: 16px;" class="sidebar-hierarchy-toggle-hidden toggled-0" translate="yes">
 			<div class="sidebar-hierarchy-toggle toggle-1">
 				<div class="sidebar-hierarchy-toggle-line"></div>
 				<div class="sidebar-hierarchy-toggle-line sidebar-hierarchy-toggle-line-plus"></div>
@@ -281,9 +282,14 @@
 			<br>
 			Adds a few random digits to the beginning and end of the message.
 			<div class="ce" translate="no">
-				<span class="clr-t">"000111222333444555666777888999"</span>
+				plus_random(<span class="clr-t">"000111222333444555666777888999"</span>, <span class="clr-i">123456</span>, <span class="clr">True</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"13370001112223334445556667778889994200"</span>
 				<hr>
-				<span class="clr-t">"13370001112223334445556667778889994200"</span>
+				plus_random(<span class="clr-t">"13370001112223334445556667778889994200"</span>, <span class="clr-i">123456</span>, 
+				<span class="clr">False</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"000111222333444555666777888999"</span>
 			</div>
 			<br>
 			<br>
@@ -302,9 +308,73 @@
 			Each n character is shifted right to the next n character. n = sixth number of the key.
 			<div class="ce" translate="no">
 				move(<span class="clr-t">"000111222333444555666777888999"</span>, <span class="clr-i">246135</span>, <span class="clr">True</span>)
-				<hr>
+				<br>
 				<span class="clr">>>></span> <span class="clr-t">"<span class="clr">8</span>0011<span class="clr">0</span>2223<span 
 				class="clr">1</span>3444<span class="clr">3</span>5566<span class="clr">5</span>7778<span class="clr">6</span>8999"</span>
+				<hr>
+				move(<span class="clr-t">"<span class="clr">8</span>0011<span 
+				class="clr">0</span>2223<span class="clr">1</span>3444<span class="clr">3</span>5566<span class="clr">5</span>7778<span 
+				class="clr">6</span>8999"</span>, <span class="clr-i">246135</span>, <span class="clr">False</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"000111222333444555666777888999"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-inv" class="hs">Inv</span>
+			<div class="ce" translate="no">
+				<span class="clr">def</span> inv(<span class="clr">msg</span>, <span class="clr">key</span>, <span class="clr">ED</span>)
+			</div>
+			<span class="dt">str</span> msg - Text for crypting
+			<br>
+			<span class="dt">int</span> msg - Encryption key
+			<br>
+			<span class="dt">bool</span> ED - True : Encrypt, False : Decrypt
+			<br>
+			<br>
+			Just inverts the string...
+			<div class="ce" translate="no">
+				inv(<span class="clr-t">"0123456789"</span>, <span class="clr-i">123456</span>, <span class="clr">Never mind</span>)
+				<br>
+				<span class="clr">>>></span> <span class="clr-t">"9876543210"</span>
+			</div>
+			<br>
+			<br>
+			<br>
+			<span id="goto-dictinv" class="hs">Dict Inv</span>
+			<div class="ce" translate="no">
+				<span class="clr">def</span> dict_inv(<span class="clr">dictionary</span>)
+			</div>
+			<span class="dt">dict</span> dictionary - Dictionary to invert
+			<br>
+			<br>
+			Inverts the dictionary. key = value, value = key. Used for decryption in the <a class="clr" href="#goto-translate">translate</a> function.
+			<div class="ce" translate="no">
+				translation = {
+				<span class="clr-t">"A"</span>: <span class="clr-t">"100"</span>, 
+				<span class="clr-t">"a"</span>: <span class="clr-t">"101"</span>, 
+				<span class="clr-t">"B"</span>: <span class="clr-t">"102"</span>, 
+				<span class="clr-t">"b"</span>: <span class="clr-t">"103"</span>, 
+				<span class="clr-t">"C"</span>: <span class="clr-t">"104"</span>, 
+				<span class="clr-t">"c"</span>: <span class="clr-t">"105"</span>, 
+				<span class="clr-t">"D"</span>: <span class="clr-t">"106"</span>, 
+				<span class="clr-t">"d"</span>: <span class="clr-t">"107"</span>, 
+				<span class="clr-t">"E"</span>: <span class="clr-t">"108"</span>, 
+				<span class="clr-t">"e"</span>: <span class="clr-t">"109"</span>}
+				<br>
+				dict_inv(<span class="clr">translation</span>)
+				<br>
+				<span class="clr">>>></span> {
+				<span class="clr-t">"100"</span>: <span class="clr-t">"A"</span>, 
+				<span class="clr-t">"101"</span>: <span class="clr-t">"a"</span>, 
+				<span class="clr-t">"102"</span>: <span class="clr-t">"B"</span>, 
+				<span class="clr-t">"103"</span>: <span class="clr-t">"b"</span>, 
+				<span class="clr-t">"104"</span>: <span class="clr-t">"C"</span>, 
+				<span class="clr-t">"105"</span>: <span class="clr-t">"c"</span>, 
+				<span class="clr-t">"106"</span>: <span class="clr-t">"D"</span>, 
+				<span class="clr-t">"107"</span>: <span class="clr-t">"d"</span>, 
+				<span class="clr-t">"108"</span>: <span class="clr-t">"E"</span>, 
+				<span class="clr-t">"109"</span>: <span class="clr-t">"e"</span>}
 			</div>
 			<br>
 			<br>
