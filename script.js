@@ -62,16 +62,17 @@ form.addEventListener("submit", function(){
     obj.scrollIntoView()
 })
 
-
+function togg(){
+	var toggle = document.getElementsByClassName(this.classList[2])[0]
+	toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
+	document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])[0].classList.toggle("sidebar-hierarchy-toggle-hidden")
+}
 function init() {
 	for (var i = 0; i < toggles.length; i++) {
 		toggles[i].classList.add("sidebar-hierarchy-toggle-" + i)
 		toggles[i].childNodes[3].classList.add("sidebar-hierarchy-toggle-line-" + i)
-		toggles[i].addEventListener("click", function(){
-			var toggle = document.getElementsByClassName(this.classList[2])[0]
-			toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
-			document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])[0].classList.toggle("sidebar-hierarchy-toggle-hidden")
-		})
+		toggles[i].removeEventListener("click", togg)
+		toggles[i].addEventListener("click", togg)
 	}
 
 	var res = []
@@ -102,9 +103,9 @@ async function load(src) {
 		.then((res) => {
 			return res.text()}).then((text) => {libname.innerText = text
 		})
-	arrow.innerText = ">"
+	if (libname.innerText == "") arrow.innerText = ""
+	else arrow.innerText = ">"
 	results.innerHTML = ""
 	init()
 }
 load("myapi")
-arrow = document.getElementsByClassName("header-arrow")[0].innerText = "" //Костыли

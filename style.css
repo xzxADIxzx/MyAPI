@@ -272,4 +272,5 @@ header{
 	color: #FFF;
 	background-color: #222A35;
 	border-radius: 8px;
+	overflow-wrap: break-word;
 }
