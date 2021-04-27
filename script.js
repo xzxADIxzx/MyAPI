@@ -4,11 +4,12 @@ var line2 = document.getElementsByClassName("header-menu-line-2")[0]
 var line3 = document.getElementsByClassName("header-menu-line-3")[0]
 var sidebar = document.getElementById("sidebar")
 var content = document.getElementById("content")
-var form = document.getElementById("header-form")
 var search = document.getElementById("header-form-search")
 var results = document.getElementById("header-form-search-results")
+var form = document.getElementById("header-form")
 var toggles = document.getElementsByClassName("sidebar-hierarchy-toggle")
 var toggle_line = document.getElementsByClassName("sidebar-hierarchy-toggle-line-plus")
+var page_load = document.getElementsByClassName("page-load")
 
 menu.addEventListener("mouseover", function(){
 	line1.classList.add("header-menu-line-hover")
@@ -56,17 +57,54 @@ search.addEventListener("input", function(){
 	}
 })
 
-for (var i = 0; i < toggles.length; i++) {
-	toggles[i].classList.add("sidebar-hierarchy-toggle-" + i)
-	toggles[i].childNodes[3].classList.add("sidebar-hierarchy-toggle-line-" + i)
-	toggles[i].addEventListener("click", function(){
-		var toggle = document.getElementsByClassName(this.classList[2])[0]
-		toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
-		document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])[0].classList.toggle("sidebar-hierarchy-toggle-hidden")
-	})
-}
+form.addEventListener("submit", function(){
+    obj = document.getElementById(form.action.split("#")[1])
+    obj.scrollIntoView()
+})
 
-var res = []
-var allres = document.getElementsByClassName("sidebar-hierarchy-dot-text")
-for (var i = allres.length - 1; i >= 0; i--) res[i] = allres[i]
-for (var i = 0; i < res.length; i++) results.innerHTML += "<div class=\"header-form-search-results-elem\">" + res[i].outerHTML + "</div>"
+
+function init() {
+	for (var i = 0; i < toggles.length; i++) {
+		toggles[i].classList.add("sidebar-hierarchy-toggle-" + i)
+		toggles[i].childNodes[3].classList.add("sidebar-hierarchy-toggle-line-" + i)
+		toggles[i].addEventListener("click", function(){
+			var toggle = document.getElementsByClassName(this.classList[2])[0]
+			toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
+			document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])[0].classList.toggle("sidebar-hierarchy-toggle-hidden")
+		})
+	}
+
+	var res = []
+	var allres = document.getElementsByClassName("sidebar-hierarchy-dot-text")
+	for (var i = allres.length - 1; i >= 0; i--) res[i] = allres[i]
+	for (var i = 0; i < res.length; i++) results.innerHTML += "<div class=\"header-form-search-results-elem\">" + res[i].outerHTML + "</div>"
+
+	for (var i = 0; i < page_load.length; i++) {
+		page_load[i].addEventListener("click", function(){
+			load(this.childNodes[1].href.split("#")[1].slice(5))
+		})
+	}
+}
+async function load(src) {
+	sidebar = document.getElementById("sidebar")
+	content = document.getElementById("content")
+	libname = document.getElementsByClassName("header-text")[1]
+	arrow = document.getElementsByClassName("header-arrow")[0]
+	await fetch("https://xzxadixzx.github.io/MyAPI/" + src + "/sidebar.html")
+		.then((res) => {
+			return res.text()}).then((text) => {sidebar.innerHTML = text
+		})
+	await fetch("https://xzxadixzx.github.io/MyAPI/" + src + "/content.html")
+		.then((res) => {
+			return res.text()}).then((text) => {content.innerHTML = text
+		})
+	await fetch("https://xzxadixzx.github.io/MyAPI/" + src + "/name")
+		.then((res) => {
+			return res.text()}).then((text) => {libname.innerText = text
+		})
+	arrow.innerText = ">"
+	results.innerHTML = ""
+	init()
+}
+load("myapi")
+arrow = document.getElementsByClassName("header-arrow")[0].innerText = "" //Костыли
