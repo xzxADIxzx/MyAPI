@@ -44,6 +44,7 @@ header{
 	font-size: 32px;
 	font-weight: 800;
 	font-family: 'Roboto', sans-serif;
+	white-space: nowrap;
 }
 .header-text > a{
 	color: #0CC;
