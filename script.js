@@ -9,6 +9,7 @@ var results = document.getElementById("header-form-search-results")
 var form = document.getElementById("header-form")
 var toggles = document.getElementsByClassName("sidebar-hierarchy-toggle")
 var toggle_line = document.getElementsByClassName("sidebar-hierarchy-toggle-line-plus")
+var toggle_dots = document.getElementsByClassName("sidebar-hierarchy-dot-text")
 var page_load = document.getElementsByClassName("page-load")
 
 menu.addEventListener("mouseover", function(){
@@ -74,6 +75,11 @@ function init() {
 		toggles[i].childNodes[3].classList.add("sidebar-hierarchy-toggle-line-" + i)
 		toggles[i].removeEventListener("click", togg)
 		toggles[i].addEventListener("click", togg)
+	}
+
+	for (var i = 0; i < toggle_dots.length; i++) {
+		toggle_dots[i].removeEventListener("click", menu.scrollIntoView)
+		toggle_dots[i].addEventListener("click", menu.scrollIntoView)
 	}
 
 	var res = []
