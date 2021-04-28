@@ -59,12 +59,11 @@ search.addEventListener("input", function(){
 })
 
 form.addEventListener("submit", function(){
-    obj = document.getElementById(form.action.split("#")[1])
-    obj.scrollIntoView()
+    obj = document.getElementById(form.action.split("#")[1]).scrollIntoView()
     menu.scrollIntoView()
 })
 
-function togg(){
+function togg() {
 	var toggle = document.getElementsByClassName(this.classList[2])[0]
 	toggle_line[toggle.childNodes[3].classList[2].toString()[30]].classList.toggle("sidebar-hierarchy-toggle-line-plus-opened")
 	document.getElementsByClassName("toggled-" + this.classList[1].toString()[7])[0].classList.toggle("sidebar-hierarchy-toggle-hidden")
@@ -77,15 +76,16 @@ function init() {
 		toggles[i].addEventListener("click", togg)
 	}
 
-	for (var i = 0; i < toggle_dots.length; i++) {
-		toggle_dots[i].removeEventListener("click", menu.scrollIntoView)
-		toggle_dots[i].addEventListener("click", menu.scrollIntoView)
-	}
-
 	var res = []
 	var allres = document.getElementsByClassName("sidebar-hierarchy-dot-text")
 	for (var i = allres.length - 1; i >= 0; i--) res[i] = allres[i]
 	for (var i = 0; i < res.length; i++) results.innerHTML += "<div class=\"header-form-search-results-elem\">" + res[i].outerHTML + "</div>"
+
+	for (var i = 0; i < toggle_dots.length; i++) {
+		toggle_dots[i].addEventListener("click", function() {
+			menu.scrollIntoView()
+		})
+	}
 
 	for (var i = 0; i < page_load.length; i++) {
 		page_load[i].addEventListener("click", function(){
