@@ -60,6 +60,7 @@ search.addEventListener("input", function(){
 form.addEventListener("submit", function(){
     obj = document.getElementById(form.action.split("#")[1])
     obj.scrollIntoView()
+    menu.scrollIntoView()
 })
 
 function togg(){
