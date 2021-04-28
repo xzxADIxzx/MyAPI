@@ -2,6 +2,11 @@
 	#header-form{
 		margin: 0 64px 0 auto;
 	}
+	#header-form-search-results{
+		width: 475px;
+
+		right: 0;
+	}
 	#header-form-decor{
 		right: -64px;
 	}
@@ -19,11 +24,11 @@
 	#header-form{
 		margin: 0 16px 0 auto;
 	}
+	#header-form-search-results{
+		width: 411px;
+	}
 	#header-form-decor{
 		right: -128px;
-	}
-	#header-decor{
-		display: none;
 	}
 	#sidebar{
 		position: absolute;
@@ -40,5 +45,27 @@
 	.content-opened{
 		padding-right: 16px !important;
 		padding-left: 16px !important;
+	}
+}
+@media (max-width: 600px){
+	body > header > div:nth-child(2){
+		z-index: 1;
+	}
+	#header-menu{
+		flex: none;
+	}
+	#header-form-search{
+		width: 160px;
+	
+		font-size: 20px;
+	}
+	#header-form-send{
+		display: none;
+	}
+	#header-form-search-results{
+		width: 251px;
+	}
+	#header-form-decor{
+		right: calc(-256px - 32px);
 	}
 }
