@@ -83,7 +83,9 @@ function init() {
 
 	for (var i = 0; i < toggle_dots.length; i++) {
 		toggle_dots[i].addEventListener("click", function() {
-			menu.scrollIntoView()
+			setTimeout(function(){
+				menu.scrollIntoView()
+			}, 200)
 		})
 	}
 
